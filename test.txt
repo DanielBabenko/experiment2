@@ -1,0 +1,7 @@
+remove_by_id 7
+print_unique_tuned_in_works
+max_by_author
+remove_greater Rim21
+execute_script test.txt
+print_field_ascending_tuned_in_works
+show
