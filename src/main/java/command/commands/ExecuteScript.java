@@ -39,8 +39,6 @@ public class ExecuteScript extends Invoker {
     public void execute(String pathToFile) throws IOException {
         //pathToFile = "/home/studs/s367069/" + pathToFile;
         if (new File(pathToFile).exists()) {
-            List<String> files = new ArrayList<>();
-            files.add(pathToFile);
             // настраиваем поток ввода
             getHelperController().setReader(new BufferedReader(new InputStreamReader(new FileInputStream(pathToFile))));
 
@@ -79,18 +77,12 @@ public class ExecuteScript extends Invoker {
                     } else {
                         cmd = reformatCmd(cmd);
                         String[] command = cmd.split(" ", 2);
-                        if (command[0].equals("execute_script")) {
-                            for(String file: files){
-                                if (command[1].equals(file)){
-                                    System.out.println("Я запрещаю Вам рекурсию!");
-                                }
-                            }
+                        if (command[0].equals("ExecuteScript")) {
                             if (getHelperController().addToPaths(command[1])) {
                                 doCommand(command[1]);
                                 getHelperController().addToPaths(command[1]);
-                                files.add(command[1]);
                             } else {
-                                System.out.println("ты не сможешь сломать её!");
+                                System.out.println("Ты не сможешь сломать её!");
                             }
                         } else {
                             for (Map.Entry<String, Invoker> entry : getInputCommands().entrySet()) {
@@ -111,6 +103,7 @@ public class ExecuteScript extends Invoker {
             System.out.println("Файл не найден!");
         }
         System.out.println("Скрипт успешно выполнен!");
+        this.getHelperController().getPaths().clear();
     }
 
 
