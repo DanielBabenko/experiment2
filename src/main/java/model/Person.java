@@ -3,6 +3,8 @@ package model;
 
 import model.enums.Color;
 
+import java.util.Objects;
+
 public class Person {
     private final String name; //Поле не может быть null, Строка не может быть пустой
     private final String birthday; //Поле не может быть null
@@ -10,10 +12,15 @@ public class Person {
     private final Color eyeColor; //Поле не может быть null
 
     public Person(String name, Color eyeColor, double height, String birthday) {
-        this.birthday = birthday;
-        this.name = name;
-        this.height = height;
-        this.eyeColor = eyeColor;
+        this.birthday = Objects.requireNonNull(birthday);
+        this.name = Objects.requireNonNull(name);
+        this.height = checkHeight(height);
+        this.eyeColor = Objects.requireNonNull(eyeColor);
+    }
+
+    private double checkHeight(double height){
+        if (height < 0) {height = Math.abs(height)+1;}
+        return height;
     }
 
     public String getName() {

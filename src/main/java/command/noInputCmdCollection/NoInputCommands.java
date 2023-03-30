@@ -3,6 +3,10 @@ package command.noInputCmdCollection;
 import command.Command;
 import command.HelperController;
 import command.commands.*;
+import command.commands.inputCommands.RemoveGreater;
+import command.commands.inputCommands.RemoveGreaterElementCommand;
+import command.commands.inputCommands.RemoveLower;
+import command.commands.inputCommands.RemoveLowerElementCommand;
 import command.commands.noInputCommands.*;
 import command.commands.noInputCommands.ShowTheCollectionCommand;
 import command.commands.noInputCommands.help.GetHelpCommand;
@@ -36,6 +40,12 @@ public class NoInputCommands {
         Command clearLabs = new ClearTheCollectionCommand(helperController);
         Clear c = new Clear(clearLabs);
 
+        Command removeLowerEl = new RemoveLowerElementCommand(helperController);
+        RemoveLower lower = new RemoveLower(removeLowerEl);
+
+        Command removeGreaterEl = new RemoveGreaterElementCommand(helperController);
+        RemoveGreater greater = new RemoveGreater(removeGreaterEl);
+
         Command printTiW = new PrintUniqueTiWCommand(helperController);
         UniqueTiW unique = new UniqueTiW(printTiW);
 
@@ -55,6 +65,8 @@ public class NoInputCommands {
         commands.put(s.getCommandName(), s);
         commands.put(info.getCommandName(), info);
         commands.put(save.getCommandName(), save);
+        commands.put(lower.getCommandName(),lower);
+        commands.put(greater.getCommandName(), greater);
     }
 
     public Map<String, Invoker> getCommands() {

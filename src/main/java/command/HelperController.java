@@ -131,29 +131,33 @@ public class HelperController {
     }
 
     //Удалить из коллекции все элементы, превышающие заданный
-    public void removeGreater(String e) {
+    public void removeGreater() {
+        System.out.println("Введите id элемента для сравнения:");
+        int id = checkOnInt();
         List<LabWork> labWorkList = new ArrayList<>();
         labWorkList.addAll(getRoot().getLabWorkSet());
         labWorkList.sort(compareByMinPointReverse);
 
         for (LabWork el : labWorkList) {
-            if (el.getName().equals(e)) {
+            if (el.getId() == id) {
                 break;
             }
             getRoot().getLabWorkSet().remove(el);
         }
 
-        System.out.println("Все элементы выше данного, были удаленны.");
+        System.out.println("Все элементы, большие данного, были удалены.");
     }
 
     //Удалить из коллекции все элементы, меньшие, чем заданный
-    public void removeLower(String e) {
+    public void removeLower() {
+        System.out.println("Введите id элемента для сравнения:");
+        int id = checkOnInt();
         List<LabWork> labWorkList = new ArrayList<>();
         labWorkList.addAll(getRoot().getLabWorkSet());
-        labWorkList.sort(compareByName);
+        labWorkList.sort(compareByMinPoint);
 
         for (LabWork el : labWorkList) {
-            if (el.getName().equals(e)) {
+            if (el.getId() == id) {
                 break;
             }
             getRoot().getLabWorkSet().remove(el);
@@ -292,7 +296,7 @@ public class HelperController {
     //Доп метод для add: добавить автора
     private Person addPerson() throws IOException {
         System.out.println("Введите имя автора: ");
-        String name = reader.readLine();
+        String name = Objects.requireNonNull(reader.readLine());
         System.out.println("Введите рост автора: ");
         float height = checkOnFloat();
         String date = null;
