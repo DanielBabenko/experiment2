@@ -6,6 +6,7 @@ import command.ElementCommand;
 import command.commands.Invoker;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class RemoveLower extends Invoker {
     private Command removeLowerEl;
@@ -20,12 +21,12 @@ public class RemoveLower extends Invoker {
         this.removeLowerEl = removeLowerEl;
     }
 
-    public void removeLower() throws IOException {
+    public void removeLower() throws IOException, ParseException {
         removeLowerEl.execute();
     }
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         removeLowerEl.execute();
     }
 }

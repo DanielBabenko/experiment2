@@ -6,6 +6,7 @@ import command.noInputCmdCollection.NoInputCommands;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.*;
 
 public class ExecuteScript extends Invoker {
@@ -30,13 +31,13 @@ public class ExecuteScript extends Invoker {
     public void doCommand(String e) {
         try {
             execute(e);
-        } catch (IOException ex) {
+        } catch (IOException | ParseException ex) {
             throw new RuntimeException(ex);
         }
     }
 
 
-    public void execute(String pathToFile) throws IOException {
+    public void execute(String pathToFile) throws IOException, ParseException {
         //pathToFile = "/home/studs/s367069/" + pathToFile;
         if (new File(pathToFile).exists()) {
             // настраиваем поток ввода

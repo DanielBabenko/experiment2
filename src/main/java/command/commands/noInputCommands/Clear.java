@@ -4,6 +4,7 @@ import command.Command;
 import command.commands.Invoker;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class Clear extends Invoker {
     private Command clearUpCommand;
@@ -19,12 +20,12 @@ public class Clear extends Invoker {
         this.clearUpCommand = clearUpCommand;
     }
 
-    public void clear() throws IOException {
+    public void clear() throws IOException, ParseException {
         clearUpCommand.execute();
     }
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         clearUpCommand.execute();
     }
 }

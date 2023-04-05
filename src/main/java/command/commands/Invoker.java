@@ -1,9 +1,10 @@
 package command.commands;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 //Это общий класс-наследник для всех инвокеров
 public abstract class Invoker {
     //общий метод ля выполнения всех команд. Очень поможет нам для создания полиморфизма при вводе команд
-    public abstract void doCommand(String e) throws IOException;
+    public abstract void doCommand(String e) throws IOException, ParseException;
 }

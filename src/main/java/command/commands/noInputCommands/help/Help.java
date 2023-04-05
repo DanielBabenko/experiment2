@@ -5,6 +5,7 @@ import command.Command;
 import command.commands.Invoker;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class Help extends Invoker {
     private Command getHelpCommand;
@@ -19,7 +20,7 @@ public class Help extends Invoker {
 
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         getHelpCommand.execute();
     }
 }

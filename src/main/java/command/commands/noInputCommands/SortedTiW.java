@@ -5,6 +5,7 @@ import command.Command;
 import command.commands.Invoker;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class SortedTiW extends Invoker {
     private Command sortTiW;
@@ -20,12 +21,12 @@ public class SortedTiW extends Invoker {
         this.sortTiW = sortTiW;
     }
 
-    public void printFieldAscendingTunedInWorks() throws IOException {
+    public void printFieldAscendingTunedInWorks() throws IOException, ParseException {
         sortTiW.execute();
     }
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         sortTiW.execute();
     }
 }

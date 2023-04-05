@@ -5,6 +5,7 @@ import command.Command;
 import command.commands.Invoker;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class UniqueTiW extends Invoker {
     private Command printTiW;
@@ -19,12 +20,12 @@ public class UniqueTiW extends Invoker {
         this.printTiW = printTiW;
     }
 
-    public void printUniqueTunedInWorks() throws IOException {
+    public void printUniqueTunedInWorks() throws IOException, ParseException {
         printTiW.execute();
     }
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         printTiW.execute();
     }
 }

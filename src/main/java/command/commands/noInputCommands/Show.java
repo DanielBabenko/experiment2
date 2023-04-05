@@ -6,6 +6,7 @@ import command.commands.Invoker;
 import parser.Root;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class Show extends Invoker {
     private Command showTheSummary;
@@ -20,12 +21,12 @@ public class Show extends Invoker {
         this.showTheSummary = showTheSummary;
     }
 
-    public void show() throws IOException {
+    public void show() throws IOException, ParseException {
         showTheSummary.execute();
     }
 
     @Override
-    public void doCommand(String e) throws IOException {
+    public void doCommand(String e) throws IOException, ParseException {
         show();
     }
 }

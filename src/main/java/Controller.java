@@ -18,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -66,7 +67,7 @@ public class Controller {
      *
      * @throws IOException
      */
-    public void start() throws IOException {
+    public void start() throws IOException, ParseException {
         boolean flag = false;
         help.execute();
         while (!flag) {
@@ -87,7 +88,7 @@ public class Controller {
      * @param command
      *
      */
-    public void searchCommandInCollection(String command) throws IOException {
+    public void searchCommandInCollection(String command) throws IOException, ParseException {
         NoInputCommands noInputCommands = new NoInputCommands(helperController);
         setCommands(noInputCommands.getCommands());
 

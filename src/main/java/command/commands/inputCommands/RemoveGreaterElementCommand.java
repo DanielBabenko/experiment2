@@ -6,6 +6,7 @@ import command.ElementCommand;
 import command.HelperController;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class RemoveGreaterElementCommand implements Command {
     private HelperController helperController;
@@ -15,7 +16,7 @@ public class RemoveGreaterElementCommand implements Command {
     }
 
     @Override
-    public void execute(){
+    public void execute() throws IOException, ParseException {
         helperController.removeGreater();
     }
 }
