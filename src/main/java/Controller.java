@@ -87,7 +87,7 @@ public class Controller {
      * @param command
      *
      */
-    public void searchCommandInCollection(String command) throws FileNotFoundException {
+    public void searchCommandInCollection(String command) throws IOException {
         NoInputCommands noInputCommands = new NoInputCommands(helperController);
         setCommands(noInputCommands.getCommands());
 

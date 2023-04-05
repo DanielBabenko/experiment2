@@ -296,7 +296,18 @@ public class HelperController {
     //Доп метод для add: добавить автора
     private Person addPerson() throws IOException {
         System.out.println("Введите имя автора: ");
-        String name = Objects.requireNonNull(reader.readLine());
+        String name = null;
+        while (name == null) {
+            try {
+                name = reader.readLine();
+                if(name == null || name.isEmpty()){
+                    throw new RuntimeException("Пустая строка не может именем автора. Попробуй ещё раз.");
+                }
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+                name = null;
+            }
+        }
         System.out.println("Введите рост автора: ");
         float height = checkOnFloat();
         String date = null;

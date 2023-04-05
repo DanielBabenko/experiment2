@@ -3,6 +3,8 @@ package command.commands.noInputCommands;
 import command.Command;
 import command.commands.Invoker;
 
+import java.io.IOException;
+
 
 public class MaxByAuthor extends Invoker {
     private Command maxAuthorCommand;
@@ -17,12 +19,12 @@ public class MaxByAuthor extends Invoker {
         this.maxAuthorCommand = maxAuthorCommand;
     }
 
-    public void maxByAuthor(){
+    public void maxByAuthor() throws IOException {
        maxAuthorCommand.execute();
     }
 
     @Override
-    public void doCommand(String e) {
+    public void doCommand(String e) throws IOException {
         maxAuthorCommand.execute();
     }
 }
