@@ -1,12 +1,16 @@
 package command.commands.inputCommands;
 
 
+import command.Command;
 import command.ElementCommand;
 import command.commands.Invoker;
 import model.LabWork;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 public class AddIfMax extends Invoker {
-    private ElementCommand addMax;
+    private Command addMax;
     private static final String COMMAND_NAME = AddIfMax.class.getSimpleName();
   //  private static final String regex = "\\w*";
 
@@ -15,7 +19,7 @@ public class AddIfMax extends Invoker {
         return COMMAND_NAME;
     }
 
-    public AddIfMax(ElementCommand addMax){
+    public AddIfMax(Command addMax){
         this.addMax = addMax;
     }
 
@@ -24,7 +28,7 @@ public class AddIfMax extends Invoker {
     }
 
     @Override
-    public void doCommand(String e) {
-        addMax.execute(e);
+    public void doCommand(String e) throws IOException, ParseException {
+        addMax.execute();
     }
 }
